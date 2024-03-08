@@ -47,7 +47,6 @@ import (
 	"k8s.io/client-go/tools/cache"
 	watchtools "k8s.io/client-go/tools/watch"
 	"k8s.io/client-go/util/retry"
-	"k8s.io/kubernetes/pkg/features"
 	"k8s.io/kubernetes/test/e2e/feature"
 	"k8s.io/kubernetes/test/e2e/framework"
 	e2ekubectl "k8s.io/kubernetes/test/e2e/framework/kubectl"
@@ -1672,7 +1671,7 @@ var _ = SIGDescribe("StatefulSet", func() {
 	})
 })
 
-var _ = SIGDescribe("Rolling update strategy with MaxUnavailable", framework.WithFeatureGate(features.MaxUnavailableStatefulSet), func() {
+var _ = SIGDescribe("Rolling update strategy with MaxUnavailable", feature.MaxUnavailableStatefulSet, func() {
 	f := framework.NewDefaultFramework("statefulset")
 	f.NamespacePodSecurityLevel = admissionapi.LevelPrivileged
 	var ns string

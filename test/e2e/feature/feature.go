@@ -184,16 +184,15 @@ var (
 	// TODO: document the feature (owning SIG, when to use this feature for a test)
 	MasterUpgrade = framework.WithFeature(framework.ValidFeatures.Add("MasterUpgrade"))
 
-	// owning-sig: sig-storage
+	// Owner: sig-storage
 	// kep: https://kep.k8s.io/961
 	// test-infra jobs:
 	// - pull-kubernetes-e2e-storage-kind-alpha-features (need manual trigger)
-	// - ci-kubernetes-e2e-storage-kind-alpha-features
-	//
+
 	// When this label is added to a test, it means that the cluster must be created
 	// with the feature-gate "MaxUnavailableStatefulSet=true".
 	//
-	// Once the feature and API version are stable, this label should be removed and
+    // TODO: Once the feature and API version are stable, this label should be removed and
 	// these tests will be run by default on any cluster. The test-infra job also should
 	// be updated to not focus on this feature anymore.
 	MaxUnavailableStatefulSet = framework.WithFeature(framework.ValidFeatures.Add("MaxUnavailableStatefulSet"))
